@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, Button, TextInput } from 'react-native';
+import UserStore from "../store/UserStore";
 
 const SearchScreen = () => {
-  const [username, setUsername] = useState('');
+  const username = UserStore((state) => state.username);
+  const setUsername = UserStore((state) => state.setUsername);
+
 
   const giveSearch = () => {
     console.log("Searching for user:", username);
