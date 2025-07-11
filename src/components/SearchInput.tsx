@@ -1,6 +1,6 @@
 // components/SearchInput.tsx
 import React from "react";
-import { View, TextInput, Button, StyleSheet, Keyboard, Text } from "react-native";
+import { View, TextInput, Button, StyleSheet, Keyboard } from "react-native";
 import UserStore from "../store/UserStore";
 
 const SearchInput = () => {
@@ -44,15 +44,23 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: 'space-between',
         width: '100%',
-        paddingHorizontal: 20,
+        padding: 20,
     },
     input: {
         flex: 1,
         borderWidth: 1,
         borderColor: '#ccc',
         borderRadius: 20,
-        padding: 10,
-        margin: 10
+        margin: 5,
+        fontSize: 16,
+        fontWeight: '600',
+        paddingVertical: 14,
+        paddingHorizontal: 20,
+        backgroundColor: '#FFFFFF',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 6,
     },
     button: {
         borderWidth: 1,
@@ -60,5 +68,10 @@ const styles = StyleSheet.create({
         borderColor: '#ccc',
         padding: 5,
         alignItems: 'center',
+        backgroundColor: '#FFFFFF',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 6,
     }
 });
