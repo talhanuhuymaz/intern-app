@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SearchScreen from '../screens/SearchScreen'; 
-import ProfileScreen from '../screens/ProfileScreen';
+import StackNavigatorSettings from './StackNavigatorSettings';
 import { Ionicons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
@@ -22,11 +22,13 @@ const TabNavigator = () => {
                 />
                 <Tab.Screen
                     name="Profile"
-                    component={ProfileScreen}
+                    component={StackNavigatorSettings}
                     options={{
+                            headerShown:false,
                             tabBarIcon: ({ color, size }) => (
                             <Ionicons name="person" size={size} color={color} />
                         ),
+                        
                     }}
                 />
             </Tab.Navigator>
