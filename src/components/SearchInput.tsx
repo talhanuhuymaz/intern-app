@@ -1,24 +1,18 @@
 // components/SearchInput.tsx
-import React from "react";
+import React, { useState } from "react";
 import { View, TextInput, Button, StyleSheet, Keyboard } from "react-native";
-import UserStore from "../store/UserStore";
+import useUserSearchStore from "../store/userSearchStore";
+
 
 const SearchInput = () => {
+    const [input, setInput] = useState("");
+    const searchUser = useUserSearchStore((state) => state.searchUser);
 
-    const username = UserStore((state) => state.username);
-    const setUsername = UserStore((state) => state.setUsername);
 
     const giveSearch = () => {
         Keyboard.dismiss();
-        console.log("Searching for:", username);
-        
-       /*  fetch(`https://api.github.com/users/${username}`)
-        .then(response => response.json())
-        .then(data => {
-            console.log('data', data.followers)
-        })  */
-
-        console.log('selam')
+        console.log("Searching for:", input);
+        searchUser(input);
     };
 
     return (
@@ -26,8 +20,8 @@ const SearchInput = () => {
             <TextInput
                 style={styles.input}
                 placeholder="Write your Github Username"
-                value={username}
-                onChangeText={setUsername}
+                value={input}
+                onChangeText={setInput}
             />
             <View style={styles.button}>
                 <Button title="Search" onPress={giveSearch} />
@@ -37,6 +31,8 @@ const SearchInput = () => {
 };
 
 export default SearchInput;
+
+
 
 const styles = StyleSheet.create({
     row: {
