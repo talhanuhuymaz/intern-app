@@ -1,11 +1,8 @@
 import { create } from "zustand";
 import request from "../utils/request";
+import { GitHubUser } from "./types/GitUserType";
+import debounce from "lodash/debounce";
 
-type GitHubUser = {
-    login: string,
-    id: number,
-    avatar_url: string;
-};
 
 //type of the state
 type UserSearchStore = {
