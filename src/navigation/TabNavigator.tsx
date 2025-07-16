@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import SearchScreen from '../screens/SearchScreen'; 
+import SearchScreen from '../screens/SearchScreen/SearchScreen';
 import StackNavigatorSettings from './StackNavigatorSettings';
 import { Ionicons } from '@expo/vector-icons';
 

@@ -1,6 +1,8 @@
 import React from "react";
 import { View, StyleSheet} from 'react-native';
-import SearchInput from "../components/SearchInput";
+import SearchInput from "../../components/SearchInput";
+import UserCard from "../../components/UserCard";
+import styles from "./styles";
 
 
 const SearchScreen = () => {
@@ -8,16 +10,12 @@ const SearchScreen = () => {
     
     <View style={styles.container}>
       <SearchInput />
+      <UserCard />
     </View>
   );
 };
 
 export default SearchScreen;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center'
-  },
-});
+
 
