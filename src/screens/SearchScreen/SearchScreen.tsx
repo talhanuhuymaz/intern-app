@@ -1,8 +1,8 @@
 import React from "react";
 import { View, StyleSheet} from 'react-native';
 import SearchInput from "../../components/SearchInput";
-import UserCard from "../../components/UserCard";
 import styles from "./styles";
+import UserSearchList from "../../components/UserSearchList";
 
 
 const SearchScreen = () => {
@@ -10,7 +10,7 @@ const SearchScreen = () => {
     
     <View style={styles.container}>
       <SearchInput />
-      <UserCard />
+      <UserSearchList />
     </View>
   );
 };
