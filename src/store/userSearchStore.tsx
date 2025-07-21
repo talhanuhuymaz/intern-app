@@ -23,7 +23,13 @@ const debouncedSearch = debounce(async (username: string, set: any) => {
 const useUserSearchStore = create<UserSearchStore>((set) => ({
   searchResult: [],
   searchUser: (username: string) => {
+  if (username === "") {            //DebouncedSearch works even if a space is entered in TextInput so added this if statement
+    set({ searchResult: [] }); 
+  }
+  else{
     debouncedSearch(username, set);
+  }
+    
   },
   clear: () => set({ searchResult: [] }),
 }));
