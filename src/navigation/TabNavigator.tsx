@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import SearchScreen from '../screens/SearchScreen/SearchScreen';
-import StackNavigatorSettings from './StackNavigatorSettings';
+import StackNavigatorSearch from './StackNavigatorSearch';
+import StackNavigatorProfile from './StackNavigatorProfile';
 import { Ionicons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
@@ -13,8 +13,9 @@ const TabNavigator = () => {
             <Tab.Navigator>
                 <Tab.Screen
                     name="Search"
-                    component={SearchScreen}
+                    component={StackNavigatorSearch}
                     options={{
+                            headerShown:false,
                             tabBarIcon: ({ color, size }) => (
                             <Ionicons name="search" size={size} color={color} />
                         ),
@@ -22,7 +23,7 @@ const TabNavigator = () => {
                 />
                 <Tab.Screen
                     name="Profile"
-                    component={StackNavigatorSettings}
+                    component={StackNavigatorProfile}
                     options={{
                             headerShown:false,
                             tabBarIcon: ({ color, size }) => (

@@ -10,7 +10,7 @@ export type ProfileStackParamList = {
 
 const Stack = createNativeStackNavigator<ProfileStackParamList>();
 
-const StackNavigatorSettings = () => {
+const StackNavigatorProfile = () => {
     return (
             <Stack.Navigator >
                 <Stack.Screen
@@ -29,4 +29,4 @@ const StackNavigatorSettings = () => {
     )
 };
 
-export default StackNavigatorSettings;
+export default StackNavigatorProfile;
