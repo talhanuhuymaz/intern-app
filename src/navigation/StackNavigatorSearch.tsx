@@ -5,7 +5,7 @@ import RepoScreen from "../screens/RepoScreen";
 
 export type SearchStackParamList = {
   SearchPage: undefined;
-  Repositories: undefined;
+  Repositories: { username: string };
 };
 
 const Stack = createNativeStackNavigator<SearchStackParamList>();
