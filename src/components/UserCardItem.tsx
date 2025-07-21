@@ -1,13 +1,18 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { GitHubUser } from '../store/types/GitUserType'; 
-
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { SearchStackParamList } from '../navigation/StackNavigatorSearch';
 
 type Props = {
     user: GitHubUser;
 }
 
 function UserCardItem({ user }: Props) {
+    const navigation = useNavigation<NativeStackNavigationProp<SearchStackParamList>>();
+
+
     return (
          <View style={styles.card}>
         
@@ -18,7 +23,7 @@ function UserCardItem({ user }: Props) {
         
                   <TouchableOpacity
                     style={styles.repoButton}
-                    onPress={() => {console.log(`${user.login}'s repositories clicked`);}}>
+                    onPress={() => navigation.navigate('Repositories')}>
                     <Text style={styles.repoButtonText}>Repositories</Text>
                   </TouchableOpacity>
                   

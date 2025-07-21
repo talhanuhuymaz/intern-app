@@ -14,7 +14,7 @@ function UserSearchList() {
     <FlatList
       data={searchResult}
       keyExtractor={(item) => item.id.toString()}
-      renderItem={({ item }) => <UserCardItem user={item}/> }
+      renderItem={({ item }) => <UserCardItem user={item}/>}
     />
   );
 };
