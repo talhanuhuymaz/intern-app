@@ -11,11 +11,15 @@ const RepoScreen = () => {
   const route = useRoute();
   const { username } = route.params as RouteParams;
   
+  const clearRepos = useRepoStore((state) => state.clearRepos);
   const searchRepo = useRepoStore((state) => state.searchRepo);
   const repoResult = useRepoStore((state) => state.repoResult);
 
-  useEffect(()=> {
+  useEffect(()=> {               
     searchRepo(username)
+    return () => {
+      clearRepos();   //  cleared the previous repository data before fetching new ones 
+    } 
   },[]);
 
 
