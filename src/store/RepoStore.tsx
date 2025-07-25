@@ -7,7 +7,6 @@ type Repo = {
   name: string;
   description: string;
   html_url: string;
-  favorites: boolean;
 };
 
 
@@ -15,7 +14,6 @@ type RepoStore = {
   repoResult: Repo[];
   searchRepo: (username: string) => void;
   clearRepos: () => void;
-  addToFavorite: (repoId: number) => void;
 };
 
 
@@ -31,13 +29,6 @@ const useRepoStore = create<RepoStore>((set) => ({
   },
   //--------------clearing the repoResult array---------------------
   clearRepos: () => set({ repoResult: [] }),
-
-  //------------------add favorite system-----------------------
-  addToFavorite: (repoId: number) => set((state) => ({
-    repoResult: state.repoResult.map(repo =>
-      repo.id === repoId ? { ...repo, favorites: !repo.favorites } : repo
-    )
-  })),
 }));
 
 export default useRepoStore;
