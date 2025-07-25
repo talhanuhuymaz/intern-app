@@ -1,6 +1,6 @@
 // components/SearchInput.tsx
 import React, { useState } from "react";
-import { View, TextInput, Button, StyleSheet, Keyboard, TouchableOpacity,Text} from "react-native";
+import { StyleSheet, TextInput, View } from "react-native";
 import useUserSearchStore from "../store/userSearchStore";
 
 
@@ -8,13 +8,6 @@ const SearchInput = () => {
     const [input, setInput] = useState("");
     const searchUser = useUserSearchStore((state) => state.searchUser);
 
-  /*   const giveSearch = () => {
-        Keyboard.dismiss();
-        console.log("Searching for:", input);
-        searchUser(input);
-            
-        
-    }; */
 
     return (
         <View style={styles.row}>
@@ -29,13 +22,6 @@ const SearchInput = () => {
                     searchUser(trimmedText);
                 }}
             />
-        
-
-         {/*     <TouchableOpacity
-                    style={styles.searchBtn}
-                    onPress={giveSearch}>
-                    <Text style={styles.btnText}>Search</Text>
-            </TouchableOpacity> */}
         </View>
     
     );
