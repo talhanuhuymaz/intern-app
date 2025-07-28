@@ -5,7 +5,6 @@ import { persist, createJSONStorage } from "zustand/middleware";
 type FavoriteStore = {
   favoriteIds: number[]
   addToFavorites: (repoId:number) => void
-  isFavorite: (repoId:number) => boolean
 };
 
 const useFavoriteStore = create<FavoriteStore>()(
@@ -18,7 +17,6 @@ const useFavoriteStore = create<FavoriteStore>()(
         const updatedIds = alreadyHas ? favoriteIds.filter(id => id !== repoId) : [...favoriteIds, repoId];
         set({favoriteIds:updatedIds});
       },
-      isFavorite: (repoId) => get().favoriteIds.includes(repoId),
     }),
     {
       name: "favorite-storage",

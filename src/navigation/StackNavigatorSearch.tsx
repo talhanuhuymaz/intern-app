@@ -2,10 +2,12 @@ import React from "react";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SearchScreen from "../screens/SearchScreen/SearchScreen";
 import RepoScreen from "../screens/RepoScreen";
+import RepoDetailsScreen from "../screens/RepoDetailScreen/RepoDetailsScreen";
 
 export type SearchStackParamList = {
   SearchPage: undefined;
   Repositories: { username: string };
+  RepositoryDetails: { repo: any }; 
 };
 
 const Stack = createNativeStackNavigator<SearchStackParamList>();
@@ -22,8 +24,13 @@ const StackNavigatorSearch = () => {
                 <Stack.Screen
                     name="Repositories"
                     component={RepoScreen}
-                    options={{ title: 'Repos' }}
+                    options={{ title: 'Repositories' }}
                 />
+                  <Stack.Screen
+                    name="RepositoryDetails"
+                    component={RepoDetailsScreen}
+                    options={{ title: 'Repo Details' }}
+            />
         
             </Stack.Navigator>
     )
