@@ -1,29 +1,28 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { SearchStackParamList } from "../navigation/StackNavigatorSearch"; 
+
+
 
 const RepoItem = ({
   name,
-  isFavorite,
-  id,
-  onAddToFavorite,
+  repo
 }: {
   name: string;
-  isFavorite: boolean;
-  id: number;
-  onAddToFavorite: (itemId: number) => void;
-}) => {
+  repo: any;
+}) => { 
+  const navigation = useNavigation<NativeStackNavigationProp<SearchStackParamList>>();
+
   return (
+    <TouchableOpacity onPress={() => navigation.navigate('RepositoryDetails', { repo })}>
     <View style={styles.card}>
       <View>
         <Text style={styles.name}>{name}</Text>
       </View>
-
-      <View>
-        <TouchableOpacity onPress={() => onAddToFavorite(id)}>
-          <Text style={styles.fav}>{isFavorite ? "★" : "☆"}</Text>
-        </TouchableOpacity>
-      </View>
     </View>
+    </TouchableOpacity>
   );
 };
 
