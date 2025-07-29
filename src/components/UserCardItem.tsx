@@ -16,6 +16,7 @@ function UserCardItem({ user }: Props) {
   return (
     <TouchableOpacity onPress={() => navigation.navigate("Repositories", { username: user.login })}>
       <View style={styles.card}>
+        
         <View style={styles.userInfoRow}>
           <Image source={{ uri: user.avatar_url }} style={styles.avatar} />
           <Text style={styles.name}>{user.login}</Text>
@@ -23,12 +24,10 @@ function UserCardItem({ user }: Props) {
 
         <TouchableOpacity
           style={styles.repoButton}
-          onPress={() =>
-            navigation.navigate("Repositories", { username: user.login })
-          }
-        >
+          onPress={() => navigation.navigate("Repositories", { username: user.login })}>
           <Text style={styles.repoButtonText}>Repositories</Text>
         </TouchableOpacity>
+
       </View>
     </TouchableOpacity>
   );
@@ -41,14 +40,21 @@ const styles = StyleSheet.create({
     minWidth: 400,
     width: "100%",
     marginTop: 10,
+    marginBottom:10,
     padding: 15,
     borderRadius: 10,
     backgroundColor: "#FFFFFF",
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'space-between',
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
   },
   userInfoRow: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 10,
   },
   avatar: {
     width: 40,
@@ -61,15 +67,19 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   repoButton: {
-    marginTop: 5,
-    paddingVertical: 6,
-    paddingHorizontal: 12,
+    width: 80,      
+    height: 40,        
+    borderRadius: 25,  
     backgroundColor: "black",
-    borderRadius: 6,
-    alignSelf: "flex-end",
+    alignItems: "center",
+    justifyContent: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
   },
   repoButtonText: {
     color: "#fff",
-    fontSize: 14,
+    fontSize: 10,
   },
 });

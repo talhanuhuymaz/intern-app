@@ -21,6 +21,7 @@ const RepoItem = ({
       <View>
         <Text style={styles.name}>{name}</Text>
       </View>
+      <Text style={styles.arrow}>➜</Text>
     </View>
     </TouchableOpacity>
   );
@@ -37,12 +38,17 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 0.5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
   },
   name: {
     fontWeight: "bold",
     fontSize: 16,
   },
-  fav: {
-    fontSize: 25,
-  },
+  arrow: {
+    fontSize: 16,
+    color: "#a1a1a1ff"
+  }
 });
