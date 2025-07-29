@@ -25,7 +25,7 @@ function UserCardItem({ user }: Props) {
         <TouchableOpacity
           style={styles.repoButton}
           onPress={() => navigation.navigate("Repositories", { username: user.login })}>
-          <Text style={styles.repoButtonText}>Repositories</Text>
+          <Text style={styles.repoButtonText}>➜</Text>
         </TouchableOpacity>
 
       </View>
@@ -80,6 +80,6 @@ const styles = StyleSheet.create({
   },
   repoButtonText: {
     color: "#fff",
-    fontSize: 10,
+    fontSize: 15,
   },
 });

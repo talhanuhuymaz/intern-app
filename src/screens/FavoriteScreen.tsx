@@ -4,7 +4,7 @@ import useFavoriteStore from "../store/FavoriteStore";
 
 const FavoriteScreen = () => {
   const favoriteRepos = useFavoriteStore((state) => state.favoriteRepos);
-
+  
   return (
     <View style={styles.container}>
       <FlatList
@@ -13,10 +13,11 @@ const FavoriteScreen = () => {
         renderItem={({ item }) => (
           <View style={styles.repoCard}>
             <Text style={styles.repoName}>{item.name}</Text>
-            <Text style={styles.repoUser}> {item.owner.login}</Text>
+            <Text style={styles.repoUser}>👤 {item.owner.login}</Text>
             <Text style={styles.repoLang}>🧑‍💻 {item.language || "Unknown"}</Text>
           </View>
         )}
+        showsVerticalScrollIndicator={false} 
       />
     </View>
   );

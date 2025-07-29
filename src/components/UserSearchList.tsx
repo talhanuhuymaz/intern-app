@@ -14,7 +14,7 @@ function UserSearchList() {
       data={searchResult}
       keyExtractor={(item) => item.id.toString()}
       renderItem={({ item }) => <UserCardItem user={item} />}
-      /* showsVerticalScrollIndicator={false} */ // Hide scrollbar vertically
+      showsVerticalScrollIndicator={false}  // Hide scrollbar vertically
     />
   );
 }

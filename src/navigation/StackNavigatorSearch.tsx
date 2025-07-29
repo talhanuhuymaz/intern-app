@@ -24,12 +24,12 @@ const StackNavigatorSearch = () => {
                 <Stack.Screen
                     name="Repositories"
                     component={RepoScreen}
-                    options={{ title: 'Repositories' }}
+                    options={{ title: 'Repositories', headerTintColor: 'black' }}
                 />
                   <Stack.Screen
                     name="RepositoryDetails"
                     component={RepoDetailsScreen}
-                    options={{ title: 'Repo Details' }}
+                    options={{ title: 'Repo Details',  headerTintColor: 'black' }}
             />
         
             </Stack.Navigator>

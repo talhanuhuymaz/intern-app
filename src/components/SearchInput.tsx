@@ -13,7 +13,7 @@ const SearchInput = () => {
         <View style={styles.row}>
             <TextInput
                 style={styles.input}
-                placeholder="Write your Github Username"
+                placeholder="Search a GitHub username"
                 value={input}
                 clearButtonMode="always"
                 onChangeText={(text) => {
