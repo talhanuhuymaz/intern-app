@@ -8,16 +8,16 @@ import ConfettiCannon from "react-native-confetti-cannon";
 const RepositoryDetailsScreen = ({ route }: any) => {
   const { repo } = route.params;
 
-  const favoriteIds = useFavoriteStore((state) => state.favoriteIds);
   const addToFavorites = useFavoriteStore((state) => state.addToFavorites);
-  const isFav = favoriteIds.includes(repo.id);
+  const isFavorite = useFavoriteStore((state) => state.isFavorite);
+  const isFav = isFavorite(repo.id);
 
   //confetti
   const [showConfetti, setShowConfetti] = useState(false);
 
   const onAddFavorite = () => {
     isFav ? setShowConfetti(false) : setShowConfetti(true);
-    addToFavorites(repo.id);
+    addToFavorites(repo);
   };
 
   return (

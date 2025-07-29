@@ -3,26 +3,28 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { persist, createJSONStorage } from "zustand/middleware";
 
 type FavoriteStore = {
-  favoriteIds: number[]
-  addToFavorites: (repoId:number) => void
+  favoriteRepos: any[];
+  addToFavorites: (repo: any) => void;
+  isFavorite: (repoId: number) => boolean;
 };
 
 const useFavoriteStore = create<FavoriteStore>()(
   persist(
-    (set,get) => ({
-      favoriteIds: [],
-      addToFavorites: (repoId) => {
-        const favoriteIds = get().favoriteIds;
-        const alreadyHas = favoriteIds.includes(repoId);
-        const updatedIds = alreadyHas ? favoriteIds.filter(id => id !== repoId) : [...favoriteIds, repoId];
-        set({favoriteIds:updatedIds});
+    (set, get) => ({
+      favoriteRepos: [],
+      addToFavorites: (repo) => {
+        const favoriteRepos = get().favoriteRepos;
+        const alreadyHas = favoriteRepos.some(r => r.id === repo.id);
+        const updatedRepos = alreadyHas ? favoriteRepos.filter(r => r.id !== repo.id) : [...favoriteRepos, repo];
+        set({ favoriteRepos: updatedRepos });
       },
+       isFavorite: (repoId) => get().favoriteRepos.some(r => r.id === repoId),
     }),
     {
       name: "favorite-storage",
       storage: createJSONStorage(() => AsyncStorage),
     }
   )
-)
+);
 
 export default useFavoriteStore;
