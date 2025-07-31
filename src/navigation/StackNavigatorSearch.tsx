@@ -2,7 +2,7 @@ import React from "react";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SearchScreen from "../screens/SearchScreen/SearchScreen";
 import RepoScreen from "../screens/RepoScreen";
-import RepoDetailsScreen from "../screens/RepoDetailScreen/RepoDetailsScreen";
+import RepositoryDetailsScreen from "../screens/RepoDetailScreen/RepoDetailsScreen";
 
 export type SearchStackParamList = {
   SearchPage: undefined;
@@ -28,7 +28,7 @@ const StackNavigatorSearch = () => {
                 />
                   <Stack.Screen
                     name="RepositoryDetails"
-                    component={RepoDetailsScreen}
+                    component={RepositoryDetailsScreen}
                     options={{ title: 'Repo Details',  headerTintColor: 'black' }}
             />
         
