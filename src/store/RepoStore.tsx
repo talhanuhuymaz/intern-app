@@ -2,7 +2,6 @@ import { create } from "zustand";
 import request from "../utils/request";
 
 type Repo = {
-  bears(bears: any): void;
   id: number;
   name: string;
   description: string;

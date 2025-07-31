@@ -9,15 +9,14 @@ const RepositoryDetailsScreen = ({ route }: any) => {
   const { repo } = route.params;
 
   const addToFavorites = useFavoriteStore((state) => state.addToFavorites);
-  const isFavorite = useFavoriteStore((state) => state.isFavorite);
-  const isFav = isFavorite(repo.id);
+  const isFav = useFavoriteStore(state => state.favoriteRepos.some(r => r.id === repo.id));
 
   //confetti
   const [showConfetti, setShowConfetti] = useState(false);
 
   const onAddFavorite = () => {
-    isFav ? setShowConfetti(false) : setShowConfetti(true);
-    addToFavorites(repo);
+    isFav ?  setShowConfetti(false)  :  setShowConfetti(true);
+    addToFavorites(repo)
   };
 
   return (
