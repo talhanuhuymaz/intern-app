@@ -5,6 +5,7 @@ import { persist, createJSONStorage } from "zustand/middleware";
 type FavoriteStore = {
   favoriteRepos: any[];
   addToFavorites: (repo: any) => void;
+  removeFromFavorites: (repoId: number) => void;
   isFavorite: (repoId: number) => boolean;
 };
 
@@ -18,7 +19,11 @@ const useFavoriteStore = create<FavoriteStore>()(
         const updatedRepos = alreadyHas ? favoriteRepos.filter(r => r.id !== repo.id) : [...favoriteRepos, repo];
         set({ favoriteRepos: updatedRepos });
       },
-       isFavorite: (repoId) => get().favoriteRepos.some(r => r.id === repoId),
+      removeFromFavorites: (repoId) => {
+        const updatedRepos = get().favoriteRepos.filter(r => r.id !== repoId);
+        set({ favoriteRepos: updatedRepos });
+      },
+      isFavorite: (repoId) => get().favoriteRepos.some(r => r.id === repoId),
     }),
     {
       name: "favorite-storage",

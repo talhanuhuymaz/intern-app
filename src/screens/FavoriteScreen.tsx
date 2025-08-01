@@ -24,7 +24,10 @@ const FavoriteScreen = () => {
                 <Text style={styles.repoUser}>👤 {item.owner.login}</Text>
                 <Text style={styles.repoLang}>🧑‍💻 {item.language || "Unknown"}</Text>
               </View>
-              <Text style={styles.removeButton} onPress={() => removeFromFavorites(item.id)}>X</Text>
+              
+              <TouchableOpacity style={styles.removeButton} onPress={() => removeFromFavorites(item.id)}>
+                <Text style={styles.removeButtonText}>✖</Text>
+              </TouchableOpacity>
             </View>
           </TouchableOpacity>
         )}
@@ -64,7 +67,7 @@ const styles = StyleSheet.create({
   },
   repoUser: {
     fontSize: 14,
-    color: "#2a4d8f",
+    color: "#213c6cff",
     marginTop: 4,
     fontStyle: "italic",
     paddingBottom: 5,
@@ -76,9 +79,17 @@ const styles = StyleSheet.create({
     fontStyle: "italic",
   },
   removeButton: {
-    fontSize: 20,
-    color: "#d9534f",
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: '#d9d9d9ff',
+    alignItems: 'center',
+    justifyContent: 'center',
     marginLeft: 10,
-    padding: 8,
+  },
+  removeButtonText: {
+    fontSize: 20,
+    color: '#ffffffff',
+    fontWeight: 'bold',
   },
 });
