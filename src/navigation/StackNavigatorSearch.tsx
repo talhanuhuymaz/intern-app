@@ -14,7 +14,7 @@ export type SearchStackParamList = {
   Repositories: { username: string };
   RepositoryDetails: { repo: any };
   Favorites: undefined;
-  UserDetails: undefined
+  UserDetails: { username: string };
 };
 
 const Stack = createNativeStackNavigator<SearchStackParamList>();

@@ -10,11 +10,10 @@ type Props = {
 };
 
 function UserCardItem({ user }: Props) {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<SearchStackParamList>>();
+  const navigation = useNavigation<NativeStackNavigationProp<SearchStackParamList>>();
 
   return (
-    <TouchableOpacity onPress={() => navigation.navigate("Repositories", { username: user.login })}>
+    <TouchableOpacity onPress={() => navigation.navigate("UserDetails",{ username: user.login })}>
       <View style={styles.card}>
         
         <View style={styles.userInfoRow}>
