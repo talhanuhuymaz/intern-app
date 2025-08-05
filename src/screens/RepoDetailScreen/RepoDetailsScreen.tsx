@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import useFavoriteStore from "../../store/FavoriteStore";
-import styles from "./style";
+import styles from "./styles";
 import { Linking } from "react-native";
 import ConfettiCannon from "react-native-confetti-cannon";
 

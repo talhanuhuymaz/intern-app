@@ -3,11 +3,11 @@ import {createNativeStackNavigator,NativeStackNavigationProp} from "@react-navig
 import React, { useCallback } from "react";
 import { TouchableOpacity } from "react-native";
 import { Text } from "react-native-gesture-handler";
-import FavoriteScreen from "../screens/FavoriteScreen";
+import FavoriteScreen from "../screens/FavoriteScreen/FavoriteScreen";
 import RepositoryDetailsScreen from "../screens/RepoDetailScreen/RepoDetailsScreen";
-import RepoScreen from "../screens/RepoScreen";
+import RepoScreen from "../screens/RepoScreen/RepoScreen";
 import SearchScreen from "../screens/SearchScreen/SearchScreen";
-import UserDetailsScreen from "../screens/UserDetailsScreen";
+import UserDetailsScreen from "../screens/UserDetailsScreen/UserDetailsScreen";
 
 export type SearchStackParamList = {
   SearchPage: undefined;

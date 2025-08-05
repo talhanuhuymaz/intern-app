@@ -1,8 +1,8 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ProfileScreen from '../screens/ProfileScreen/ProfileScreen';
-import SettingsScreen from '../screens/SettingsScreen';
-import FavoriteScreen from '../screens/FavoriteScreen';
+import SettingsScreen from '../screens/SettingsScreen/SettingsScreen';
+import FavoriteScreen from '../screens/FavoriteScreen/FavoriteScreen';
 import RepositoryDetailsScreen from '../screens/RepoDetailScreen/RepoDetailsScreen';
 
 export type ProfileStackParamList = {
