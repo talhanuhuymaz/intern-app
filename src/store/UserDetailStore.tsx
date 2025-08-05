@@ -4,7 +4,7 @@ import { GitHubUser } from "./types/GitUserType";
 
 type UserDetailStore = {
   user: GitHubUser | null;
-  fetchUser: (username: string) => void;
+  fetchUser: (username: string) => Promise<void>;
 };
 
 const useUserDetailStore = create<UserDetailStore>((set) => ({
@@ -17,6 +17,8 @@ const useUserDetailStore = create<UserDetailStore>((set) => ({
       set({ user: null });
     }
   },
+  
 }));
+
 
 export default useUserDetailStore;
