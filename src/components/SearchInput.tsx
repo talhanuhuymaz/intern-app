@@ -6,8 +6,7 @@ import useUserSearchStore from "../store/userSearchStore";
 
 const SearchInput = () => {
     const [input, setInput] = useState("");
-    const searchUser = useUserSearchStore((state) => state.searchUser);
-
+    const {searchUser} = useUserSearchStore();
 
     return (
         <View style={styles.row}>
