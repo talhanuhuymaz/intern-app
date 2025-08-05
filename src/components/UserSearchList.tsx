@@ -1,12 +1,10 @@
 import React from "react";
-import { FlatList } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import useUserSearchStore from "../store/userSearchStore";
 import UserCardItem from "./UserCardItem";
 
 function UserSearchList() {
-  const searchResult = useUserSearchStore((state) => state.searchResult);
-
-  if (searchResult.length === 0) return null;
+  const { searchResult, hasSearched } = useUserSearchStore();
 
   return (
     <FlatList
@@ -14,7 +12,17 @@ function UserSearchList() {
       data={searchResult}
       keyExtractor={(item) => item.id.toString()}
       renderItem={({ item }) => <UserCardItem user={item} />}
-      showsVerticalScrollIndicator={false}  // Hide scrollbar vertically
+      showsVerticalScrollIndicator={false} // Hide scrollbar vertically
+      ListEmptyComponent={
+        // it provide user feedback when no results are found
+        hasSearched ? (
+          <View style={{ padding: 16, alignItems: "center" }}>
+            <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+              No users found !
+            </Text>
+          </View>
+        ) : null
+      }
     />
   );
 }

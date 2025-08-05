@@ -7,6 +7,7 @@ import debounce from "lodash/debounce";
 type UserSearchStore = {
   searchResult: GitHubUser[];
   searchUser: (username: string) => void;
+  hasSearched: boolean;
   clear: () => void;
 };
 
@@ -14,24 +15,25 @@ type UserSearchStore = {
 const debouncedSearch = debounce(async (username: string, set: any) => {
   try {
     const response = await request(`/search/users?q=${username}`);
-    set({ searchResult: response.items });
+    set({ searchResult: response.items, hasSearched: true });
   } catch (error) {
-    set({ searchResult: [] });
+    set({ searchResult: [], hasSearched: true  });
   }
 }, 300, { leading: true, trailing: true }); 
 
 const useUserSearchStore = create<UserSearchStore>((set) => ({
   searchResult: [],
+   hasSearched: false,
   searchUser: (username: string) => {
   if (username === "") {            //DebouncedSearch works even if a space is entered in TextInput so added this if statement
-    set({ searchResult: [] }); 
+    set({ searchResult: [], hasSearched: false  }); 
   }
   else{
     debouncedSearch(username, set);
   }
     
   },
-  clear: () => set({ searchResult: [] }),
+  clear: () => set({ searchResult: [] , hasSearched: false }),
 }));
 
 export default useUserSearchStore;
