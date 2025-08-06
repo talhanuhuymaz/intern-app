@@ -4,7 +4,7 @@ import { GitHubUser } from "./types/GitUserType";
 
 type UserDetailStore = {
   user: GitHubUser | null;
-  fetchUser: (username: string) => Promise<void>;
+  fetchUser: (username: string) => void;
 };
 
 const useUserDetailStore = create<UserDetailStore>((set) => ({

@@ -1,14 +1,24 @@
 import { RouteProp, useRoute } from "@react-navigation/native";
 import React, { useEffect } from "react";
-import { Text, View } from "react-native";
-import Animated, { FadeIn, FadeInDown, FadeInUp } from "react-native-reanimated";
+import { Text, TouchableOpacity, View } from "react-native";
+import Animated, {
+  FadeIn,
+  FadeInDown,
+  FadeInUp,
+} from "react-native-reanimated";
 import { SearchStackParamList } from "../../navigation/StackNavigatorSearch";
 import useUserDetailStore from "../../store/UserDetailStore";
 import styles from "./styles";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 type UserDetailRouteProp = RouteProp<SearchStackParamList, "UserDetails">;
 
 const UserDetailsScreen = () => {
+  const navigation =
+    useNavigation<
+      NativeStackNavigationProp<SearchStackParamList, "Repositories">
+    >();
   const route = useRoute<UserDetailRouteProp>();
   const { username } = route.params;
 
@@ -57,12 +67,16 @@ const UserDetailsScreen = () => {
             📍 {user.location || "N/A"}
           </Animated.Text>
 
-          <Animated.Text
-            entering={FadeInDown.duration(500).delay(600)}
-            style={styles.info}
-          >
-            📦 {user.public_repos} Repositories
-          </Animated.Text>
+          <Animated.View entering={FadeInDown.duration(500).delay(600)}>
+            <TouchableOpacity
+              style={styles.repoButton}
+              onPress={() => navigation.navigate("Repositories", { username })}
+            >
+              <Text style={{ color: "white" }}>
+                📦 {user.public_repos} Repositories
+              </Text>
+            </TouchableOpacity>
+          </Animated.View>
         </View>
       </View>
     </View>

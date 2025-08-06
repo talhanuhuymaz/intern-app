@@ -21,12 +21,6 @@ function UserCardItem({ user }: Props) {
           <Text style={styles.name}>{user.login}</Text>
         </View>
 
-        <TouchableOpacity
-          style={styles.repoButton}
-          onPress={() => navigation.navigate("Repositories", { username: user.login })}>
-          <Text style={styles.repoButtonText}>➜</Text>
-        </TouchableOpacity>
-
       </View>
     </TouchableOpacity>
   );
@@ -64,21 +58,5 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 18,
     fontWeight: "bold",
-  },
-  repoButton: {
-    width: 80,      
-    height: 40,        
-    borderRadius: 25,  
-    backgroundColor: "black",
-    alignItems: "center",
-    justifyContent: "center",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
-  },
-  repoButtonText: {
-    color: "#fff",
-    fontSize: 15,
   },
 });

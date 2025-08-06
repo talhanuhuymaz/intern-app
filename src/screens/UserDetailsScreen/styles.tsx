@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
     width: 90,
     height: 90,
     borderRadius: 45,
-    borderWidth: 2,
-    borderColor: "#f0f0f0",
+    borderWidth: 4,
+    borderColor: "#afafafff",
     shadowColor: "#000",
     shadowOpacity: 0.15,
     shadowOffset: { width: 0, height: 2 },
@@ -37,11 +37,24 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#444",
     marginBottom: 3,
-    padding:5
+    padding: 5,
   },
   texts: {
     flex: 1,
     paddingLeft: 20,
+  },
+  repoButton: {
+    width: 150,
+    height: 40,
+    borderRadius: 25,
+    backgroundColor: "black",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
   },
 });
 
